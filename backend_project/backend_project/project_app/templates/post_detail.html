@@ -6,10 +6,10 @@
         <div class="row same-height justify-content-center">
             <div class="col-md-6">
                 <div class="post-entry text-center">
-                    <h1 class="mb-4">게시글 제목</h1>
+                    <h1 class="mb-4">{{ post_detail_object.title }}</h1>
                     <div class="post-meta align-items-center text-center">
-                        <span class="d-inline-block mt-1">By 글쓴이</span><br/><br/>
-                        <span>&nbsp;&nbsp; 등록 날짜 : 2022-07-05</span>
+                        <span class="d-inline-block mt-1">{{ post_detail_object.author }}</span><br/><br/>
+                        <span>&nbsp;&nbsp; {{ post_detail_object.created_at }}</span>
                     </div>
                 </div>
             </div>
@@ -62,18 +62,8 @@
                         </tbody>
                     </table>
 
-                    <br/><h5 style = "font-size:120%; font-weight: bold;">상세내용</h5><hr width=”길이” style="margin-top:0;" noshade />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
-                        iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
-                        Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</p>
-                    <p>Sint ab voluptates itaque, ipsum porro qui obcaecati cumque quas sit vel. Voluptatum
-                        provident id quis quo. Eveniet maiores perferendis officia veniam est laborum, expedita fuga
-                        doloribus natus repellendus dolorem ab similique sint eius cupiditate necessitatibus, magni
-                        nesciunt ex eos.</p>
-                    <p>Quis eius aspernatur, eaque culpa cumque reiciendis, nobis at earum assumenda similique ut?
-                        Aperiam vel aut, ex exercitationem eos consequuntur eaque culpa totam, deserunt, aspernatur
-                        quae eveniet hic provident ullam tempora error repudiandae sapiente illum rerum itaque
-                        voluptatem. Commodi, sequi.</p>
+                    <br/><h5 style = "font-size:120%; font-weight: bold;">내용</h5><hr width=”길이” style="margin-top:0;" noshade />
+                    {{ post_detail_object.content }}
                 </div>
                 <div class="pt-5">
                     <p>Categories: <a href="#">카테고리</a>

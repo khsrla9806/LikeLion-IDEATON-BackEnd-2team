@@ -7,270 +7,32 @@
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h2 class="posts-entry-title">전체 게시글 목록</h2>
+                        <h2 class="posts-entry-title" style="font-weight:bold;">전체 게시글 목록</h2>
                     </div>
                     <div class="col-sm-6">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-outline-dark" type="submit">게시글 작성하기</button>
+                            <a href="{% url 'post_create' %}"><button class="btn btn-outline-dark" type="submit">게시글 작성하기</button></a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
+                    {% for post_object in post_objects %}
                     <div class="col-lg-4 mb-4">
                         <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
+                            <a href="#" class="img-link"><img src="{% static 'likelion.png' %}"
                                     alt="Image" class="img-fluid"></a>
                             <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
+                                <h2><a href="/post_list/{{ post_object.pk }}">{{ post_object.title }}</a></h2>
                                 <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
+                                    <span class="d-inline-block mt-1">By <a href="#">{{ post_object.author }}</a></span>
+                                    <span>&nbsp;-&nbsp; {{ post_object.created_at }}</span>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
+                                <p>{{ post_object.content }}</p>
+                                <p><a href="/post_list/{{ post_object.pk }}" class="read-more">Continue Reading</a></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt">
-                            <a href="{% url 'post_detail' %}" class="img-link"><img src="{% static 'likelion.png' %}"
-                                    alt="Image" class="img-fluid"></a>
-                            <div class="excerpt">
-                                <h2><a href="{% url 'post_detail' %}">일정표 계획표</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-                                    <span>&nbsp;-&nbsp; 2022-07-25</span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
-                                    laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae!
-                                    Illo, aliquid, dicta beatae quia porro id est.</p>
-                                <p><a href="#" class="read-more">Continue Reading</a></p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
