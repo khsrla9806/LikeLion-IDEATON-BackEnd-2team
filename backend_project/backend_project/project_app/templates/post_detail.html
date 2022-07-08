@@ -4,7 +4,7 @@
 <div class="bg-dark site-cover site-cover-sm same-height overlay single-page">
     <div class="container">
         <div class="row same-height justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-6" style="width:936px;">
                 <div class="post-entry text-center">
                     <h1 class="mb-4">{{ post_detail_object.title }}</h1>
                     <div class="post-meta align-items-center text-center">
@@ -68,8 +68,8 @@
                 <div class="pt-5">
                     <p>Categories: <a href="#">카테고리</a>
                 </div>
-                <button type="submit" class="btn btn-outline-success" style="height:1em; line-height:50%;">게시글 수정</button>
-                <button type="submit" class="btn btn-outline-danger" style="height:1em; line-height:50%;" >게시글 삭제</button>
+                <a href="/post_edit/{{ post_detail_object.pk }}"><button type="submit" class="btn btn-outline-success" style="height:1em; line-height:50%;">게시글 수정</button></a>
+                <a href="/post_list/post_delete/{{ post_detail_object.pk }}"><button type="submit" class="btn btn-outline-danger" style="height:1em; line-height:50%;" >게시글 삭제</button></a>
                 <!-- 댓글 -->
                 <div class="pt-5 comment-wrap">
                     <h3 class="mb-5 heading" style = "font-size:120%; font-weight: bold;">댓글</h3>
