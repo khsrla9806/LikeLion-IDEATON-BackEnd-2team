@@ -8,17 +8,20 @@ class PostForm(forms.ModelForm):
         widgets = {
             'author' : forms.TextInput(
                 attrs={
-                    'class' : 'form-control'
+                    'class' : 'form-control',
+                    'placeholder' : '',
                 }
             ),
             'title' : forms.TextInput(
                 attrs={
-                    'class' : 'form-control'
+                    'class' : 'form-control',
+                    'placeholder' : '',
                 }
             ),
             'content' : forms.Textarea(
                 attrs={
-                    'class' : 'form-control'
+                    'class' : 'form-control',
+                    'placeholder' : '',
                 }
             )
         }
