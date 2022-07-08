@@ -9,7 +9,7 @@
     <meta name="author" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
     
-    <title>멋사 플래너</title>
+    <title>Perfect Planner</title>
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -43,18 +43,16 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="{% url 'home' %}">멋사 플래너</a>
+            <a class="navbar-brand" href="{% url 'home' %}" style="color:rgb(41, 39, 39); font-weight: bold; font-size:x-large;">Perfect Planner</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'team_intro' %}">팀원소개</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'company_list' %}">기업목록</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'post_list' %}">게시글목록</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">목록추가</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">목록추가</a></li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" style="padding-left: 40px;">
+                    <li class="nav-item" style="padding-left: 20px;"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item" style="padding-left: 20px;"><a class="nav-link active" aria-current="page" href="{% url 'team_intro' %}">팀원소개</a></li>
+                    <li class="nav-item" style="padding-left: 20px;"><a class="nav-link active" aria-current="page" href="{% url 'company_list' %}">기업목록</a></li>
+                    <li class="nav-item" style="padding-left: 20px;"><a class="nav-link active" aria-current="page" href="{% url 'post_list' %}">게시글목록</a></li>
                 </ul>
                 <form class="d-flex">
                     <!-- 로그인 완료되면 'ㅇㅇ님 안녕하세요.'가 버튼 안에 들어갈 수 있게 -->
