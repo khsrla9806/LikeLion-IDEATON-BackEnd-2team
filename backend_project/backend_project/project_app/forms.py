@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, Schedule
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -29,4 +29,34 @@ class PostForm(forms.ModelForm):
             'author' : '닉네임',
             'title' : '제목',
             'content' : '내용'
+        }
+        
+class ScheduleForm(forms.ModelForm):
+    class Meta:
+        model = Schedule
+        fields = ['sequence', 'place', 'detail_content']
+        widgets = {
+            'sequence' : forms.TextInput(
+                attrs={
+                    'class' : 'form-control',
+                    'placeholder' : '',
+                }
+            ),
+            'place' : forms.TextInput(
+                attrs={
+                    'class' : 'form-control',
+                    'placeholder' : '',
+                }
+            ),
+            'detail_content' : forms.Textarea(
+                attrs={
+                    'class' : 'form-control',
+                    'placeholder' : '',
+                }
+            )
+        }
+        labels = {
+            'sequence' : '일정 순서',
+            'place' : '장소',
+            'detail_content' : '세부 내용'
         }

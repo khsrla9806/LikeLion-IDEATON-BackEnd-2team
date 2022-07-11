@@ -27,6 +27,27 @@ class PostCreate(CreateView):
     form_class = PostForm
     template_name = 'post_create.html'
     success_url = '/post_list/'
+
+# def post_create(request):
+#     if request.method == 'POST':
+#         post = Post.objects.get()
+#         post.title = request.POST['title']
+#         post.content = request.POST['content']
+#         post.author = request.POST['author']
+#         post.save()
+        
+#         schedule = Schedule.objects.get()
+#         schedule.squence = request.POST['squence']
+#         schedule.place = request.POST['place']
+#         schedule.detail_content = request.POST['detail_content']
+#         schedule.save(commit=False)
+#         schedule.post = post
+#         schedule.save()
+#         return redirect('post_list', post.pk)
+#     else:
+#         post = PostForm()
+#         schedule = ScheduleForm()
+#         return render(request, 'post_create.html', {'post':post, 'schedule':schedule})
     
 def post_edit(request, pk):
     post = Post.objects.get(pk=pk)

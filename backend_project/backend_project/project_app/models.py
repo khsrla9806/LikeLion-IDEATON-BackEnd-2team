@@ -9,3 +9,9 @@ class Post(models.Model):
 
     def __str__(self):
         return f"[{self.id}] {self.title}"
+    
+class Schedule(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+    sequence = models.IntegerField()
+    place = models.CharField(max_length=20)
+    detail_content = models.TextField(max_length=200)
