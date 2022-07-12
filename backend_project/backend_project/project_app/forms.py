@@ -10,7 +10,8 @@ class PostForm(forms.ModelForm):
                 attrs={
                     'class' : 'form-control',
                     'placeholder' : '',
-                }
+                    'required' : False,
+                },
             ),
             'title' : forms.TextInput(
                 attrs={
@@ -34,7 +35,7 @@ class PostForm(forms.ModelForm):
 class ScheduleForm(forms.ModelForm):
     class Meta:
         model = Schedule
-        fields = ['sequence', 'place', 'detail_content']
+        fields = ['sequence', 'place', 'detail_content',]
         widgets = {
             'sequence' : forms.TextInput(
                 attrs={
@@ -53,7 +54,7 @@ class ScheduleForm(forms.ModelForm):
                     'class' : 'form-control',
                     'placeholder' : '',
                 }
-            )
+            ),
         }
         labels = {
             'sequence' : '일정 순서',

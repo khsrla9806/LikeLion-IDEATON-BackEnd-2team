@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import CreateView, UpdateView
-from .forms import PostForm
-from .models import Post
+from django.views.generic import CreateView, UpdateView, TemplateView
+from .forms import PostForm, ScheduleForm
+from .models import Post, Schedule
 from django.urls import reverse
 
 def home(request):
@@ -22,33 +22,33 @@ def post_detail(request, pk):
     context = {'post_detail_object' : post_detail_object}
     return render(request, 'post_detail.html', context)
 
-class PostCreate(CreateView):
-    model = Post
-    form_class = PostForm
-    template_name = 'post_create.html'
-    success_url = '/post_list/'
+# class PostCreate(CreateView):
+#     model = Post
+#     form_class = PostForm
+#     template_name = 'post_create.html'
+#     success_url = '/post_list/'
 
-# def post_create(request):
-#     if request.method == 'POST':
-#         post = Post.objects.get()
-#         post.title = request.POST['title']
-#         post.content = request.POST['content']
-#         post.author = request.POST['author']
-#         post.save()
+def post(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST)
+        schedule_form = ScheduleForm(request.POST)
+        context = {'post_form':post_form, 'schedule_form':schedule_form}
+        if schedule_form.is_valid():
+            schedule = schedule_form.save(commit=False)
+            if post_form.is_valid():
+                post = post_form.save() # post_form이 DB에 저장됨.
+                # post_form DB에 저장된 내용 중 post_id에 해당하는 값을 schedule_form의 post_id에 저장해야 한다.
+                schedule.post_id = post.pk
+                schedule_form.save()
+                return redirect('post_list')
+        else:
+            return render(request, 'post_create.html', context)
+    else:
+        post_form = PostForm(request.POST)
+        schedule_form = ScheduleForm(request.POST)
+        context = {'post_form':post_form, 'schedule_form':schedule_form}
+        return render(request, 'post_create.html', context)
         
-#         schedule = Schedule.objects.get()
-#         schedule.squence = request.POST['squence']
-#         schedule.place = request.POST['place']
-#         schedule.detail_content = request.POST['detail_content']
-#         schedule.save(commit=False)
-#         schedule.post = post
-#         schedule.save()
-#         return redirect('post_list', post.pk)
-#     else:
-#         post = PostForm()
-#         schedule = ScheduleForm()
-#         return render(request, 'post_create.html', {'post':post, 'schedule':schedule})
-    
 def post_edit(request, pk):
     post = Post.objects.get(pk=pk)
     if request.method == 'POST':
