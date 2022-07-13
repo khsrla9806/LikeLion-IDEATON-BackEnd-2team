@@ -24,12 +24,12 @@ class Post(models.Model):
 
 class Schedule(models.Model):
     post = models.ForeignKey(Post,null=True, blank=True, on_delete=models.CASCADE)
-    sequence = models.IntegerField(blank=True, null=True)
+    sequence = models.CharField(max_length=3, blank=True, null=True)
     place = models.CharField(max_length=20, blank=True, null=True)
     detail_content = models.TextField(max_length=200, blank=True, null=True)
     
     def __str__(self):
-        return f"[{self.id}] 순서: {self.sequence} 일정내용: {self.detail_content} 게시물 id: {self.post_id}"
+        return f"[일정 id : {self.id}] [일정순서 : {self.sequence}] [일정내용 : {self.detail_content}] [게시물 id : {self.post_id}]"
 
 class Comment(models.Model):
     writer=models.CharField(max_length=20)

@@ -31,34 +31,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for schedule in schedule_loop %}
                             <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center" >수원</td>
-                                <td>결혼식 웨딩장 구하기Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
-                                    iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
-                                    Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</td>
+                                <td class="text-center">{{ schedule.0 }}</td>
+                                <td class="text-center" >{{ schedule.1 }}</td>
+                                <td>{{ schedule.2 }}</td>
                             </tr>
-                            <tr>
-                                <td class="text-center">2</td>
-                                <td class="text-center">제주도</td>
-                                <td>신혼 여행지 구하기Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
-                                    iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
-                                    Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">3</td>
-                                <td class="text-center">서울</td>
-                                <td>결혼식 웨딩 드레스 구하기Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
-                                    iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
-                                    Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">4</td>
-                                <td class="text-center">NONE</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
-                                    iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
-                                    Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
 

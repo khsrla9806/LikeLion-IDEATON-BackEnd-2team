@@ -8,9 +8,17 @@
         {% csrf_token %}
         <div id="box" style="color: black;">
             <input class="btn btn-outline-success" type="button" value="일정 추가" style="height:1em; line-height:50%;" onclick="add_textbox()">
-            {% if schedule_form.post_id == post_form.id %}
-                {% bootstrap_form schedule_form %}
-            {% endif %}
+            {% for schedule in schedule_loop %}
+                <br/>
+                <label for="id_sequence">일정순서</label>
+                <input type="text" name="sequence" class="form-control is-valid" placeholder="" value="{{ schedule.0 }}" title="" id="id_sequence">
+                
+                <label for="id_place">장소</label>
+                <input type="text" name="place" class="form-control is-valid" placeholder=""  value="{{ schedule.1 }}" maxlength="20" title="" id="id_place">
+                
+                <label for="id_detail_content">세부 내용</label>
+                <textarea name="detail_content" cols="40" rows="10" class="form-control is-valid" placeholder="" maxlength="200" title="" id="id_detail_content">{{ schedule.2 }}</textarea>
+            {% endfor %}
         </div>
         <div style="color: black;">
             {% bootstrap_form post_form %}
