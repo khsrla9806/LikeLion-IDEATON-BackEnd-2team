@@ -66,7 +66,7 @@
                     {{ post_detail_object.content }}
                 </div>
                 <div class="pt-5">
-                    <p>Categories: <a href="#">카테고리</a>
+                    <p>Categories: <a href="#">{{ post_detail_object.category }}</a>
                 </div>
                 <a href="/post_edit/{{ post_detail_object.pk }}"><button type="submit" class="btn btn-outline-success" style="height:1em; line-height:50%;">게시글 수정</button></a>
                 <a href="/post_list/post_delete/{{ post_detail_object.pk }}"><button type="submit" class="btn btn-outline-danger" style="height:1em; line-height:50%;" >게시글 삭제</button></a>
