@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import CreateView, UpdateView, TemplateView
 from .forms import PostForm, ScheduleForm
-from .models import Post, Schedule
+from .models import Post, Schedule, Category
 from django.shortcuts import render,redirect, get_object_or_404
 from django.views.generic import CreateView
 from .forms import PostForm, CommentForm
@@ -56,17 +56,22 @@ def post(request):
         
 def post_edit(request, pk):
     post = Post.objects.get(pk=pk)
+    schedule = Schedule.objects.get(post_id=pk)
     if request.method == 'POST':
-        post.title = request.POST['title']
-        post.content = request.POST['content']
-        post.author = request.POST['author']
-        post.created_at = post.updated_at
-        
-        post.save()
-        return redirect('post_detail', post.pk)
+        post_form = PostForm(request.POST, instance=post)
+        schedule_form = ScheduleForm(request.POST, instance=schedule)
+        context = {'post_form':post_form, 'schedule_form':schedule_form}
+        if post_form.is_valid() and schedule_form.is_valid():
+            post_form.save(commit=False)
+            post.created_at = post.updated_at
+            post_form.save()
+            schedule_form.save()
+            return redirect('post_detail', post.pk)
     else:
-        postForm = PostForm(instance = post) # instance = post 를 사용하면 post에 저장되어 있던 이전 내용들을 모두 불러옵니다. 
-        return render(request, 'post_edit.html', {'postForm':postForm})
+        post_form = PostForm(instance=post) # instance = post 를 사용하면 post에 저장되어 있던 이전 내용들을 모두 불러옵니다.
+        schedule_form = ScheduleForm(instance=schedule)
+        context = {'post_form':post_form, 'schedule_form':schedule_form}
+        return render(request, 'post_edit.html', context)
     
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
