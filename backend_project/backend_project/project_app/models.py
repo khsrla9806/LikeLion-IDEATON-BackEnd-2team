@@ -10,6 +10,7 @@ class Post(models.Model):
     def __str__(self):
         return f"[{self.id}] {self.title}"
     
+<<<<<<< HEAD
 class Schedule(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     sequence = models.IntegerField(blank=True)
@@ -18,3 +19,14 @@ class Schedule(models.Model):
     
     def __str__(self):
         return f"[{self.id}] 순서: {self.sequence} 일정내용: {self.detail_content} 게시물 id: {self.post_id}"
+=======
+class Comment(models.Model):
+    writer=models.CharField(max_length=20)
+    comment_text=models.TextField()
+    created_time=models.DateTimeField(auto_now_add=True)
+    modified_time=models.DateTimeField(auto_now_add=True)
+    post=models.ForeignKey(Post,null=True, blank=True,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.writer
+>>>>>>> 077cc51e7eaae179f804da99992c657ec71afc34

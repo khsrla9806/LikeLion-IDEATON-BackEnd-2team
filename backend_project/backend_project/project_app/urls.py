@@ -12,4 +12,7 @@ urlpatterns = [
     path('post_list/post_delete/<int:pk>/', views.post_delete, name = 'post_delete'),
     path('company_list/', views.company_list, name = 'company_list'),
     path('company_detail/', views.company_detail, name = 'company_detail'),
+    path('new_create/<int:pk>', views.new_comment,name='new_comment'), #댓글구현
+    path('<int:detail_pk>/comment_update/<int:comment_pk>', views.comment_update, name='comment_update'),#댓글수정
+    path('<int:detail_pk>/comment_delete/<int:comment_pk>', views.comment_delete, name='comment_delete')#댓글수정
 ]

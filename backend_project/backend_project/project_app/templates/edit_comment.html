@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="comment-form-wrap pt-5">
+    <h3 class="mb-5">&nbsp;&nbsp;&nbsp;&nbsp;댓글 수정</h3>
+    <form method="POST" class="p-5 bg-light">
+        <div class="form-group">
+            {%csrf_token%}
+            {{form}}
+            <input type="submit" value="댓글 달기" class="btn btn-primary">
+        </div>
+
+    </form>
+</div>
+{% endblock %}
