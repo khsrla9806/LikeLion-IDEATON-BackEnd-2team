@@ -10,7 +10,6 @@ class PostForm(forms.ModelForm):
                 attrs={
                     'class' : 'form-control',
                     'placeholder' : '',
-                    'required' : False,
                 },
             ),
             'title' : forms.TextInput(
