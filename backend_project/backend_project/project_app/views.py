@@ -33,7 +33,7 @@ def post_detail(request, pk):
 #     template_name = 'post_create.html'
 #     success_url = '/post_list/'
 
-def post(request):
+def post_create(request):
     if request.method == 'POST':
         post_form = PostForm(request.POST)
         schedule_form = ScheduleForm(request.POST)
