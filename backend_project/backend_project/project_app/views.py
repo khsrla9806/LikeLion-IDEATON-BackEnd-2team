@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import CreateView, UpdateView, TemplateView
 from .forms import PostForm, ScheduleForm
 from .models import Post, Schedule
-=======
 from django.shortcuts import render,redirect, get_object_or_404
 from django.views.generic import CreateView
 from .forms import PostForm, CommentForm
 from .models import Post, Comment
->>>>>>> 077cc51e7eaae179f804da99992c657ec71afc34
 from django.urls import reverse
 
 def home(request):

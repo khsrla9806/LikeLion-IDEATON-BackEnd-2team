@@ -1,9 +1,5 @@
 from django import forms
-<<<<<<< HEAD
-from .models import Post, Schedule
-=======
-from .models import Post, Comment
->>>>>>> 077cc51e7eaae179f804da99992c657ec71afc34
+from .models import Post, Schedule, Comment
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -35,7 +31,7 @@ class PostForm(forms.ModelForm):
             'content' : '내용'
         }
         
-<<<<<<< HEAD
+
 class ScheduleForm(forms.ModelForm):
     class Meta:
         model = Schedule
@@ -64,7 +60,8 @@ class ScheduleForm(forms.ModelForm):
             'sequence' : '일정 순서',
             'place' : '장소',
             'detail_content' : '세부 내용'
-=======
+        }
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -75,5 +72,4 @@ class CommentForm(forms.ModelForm):
         labels = {
             'writer' : '닉네임',
             'comment_text' : '내용'
->>>>>>> 077cc51e7eaae179f804da99992c657ec71afc34
         }
