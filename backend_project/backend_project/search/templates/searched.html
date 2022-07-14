@@ -43,10 +43,10 @@
                     <div class="excerpt">
                         <h2><a href="/post_list/{{ Post.pk }}">{{Post.title}}</a></h2>
                         <div class="post-meta align-items-center text-left clearfix">
-                            <span class="d-inline-block mt-1">By <a href="#">{{Post.content}}</a></span>
+                            <span class="d-inline-block mt-1">By {{Post.author}}</span>
                             <span>&nbsp;-&nbsp; {{ Post.created_at }}</span>
                         </div>
-                        <p>{{Post.author}}</p>
+                        <p>{{Post.content}}</p>
                         <p><a href="/post_list/{{ Post.pk }}" class="read-more">Continue Reading</a></p>
                     </div>
                 </div>

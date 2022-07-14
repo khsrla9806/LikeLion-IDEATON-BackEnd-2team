@@ -83,7 +83,7 @@ def post_edit(request, pk):
         schedule_loop = zip(sequence_list, place_list, detail_list)
         context = {'post_form':post_form, 'schedule_loop':schedule_loop}
         return render(request, 'post_edit.html', context)
-    
+
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
