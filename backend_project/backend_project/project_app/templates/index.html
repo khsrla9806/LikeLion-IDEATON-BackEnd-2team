@@ -9,48 +9,18 @@
                 <h1 class="display-4 fw-bolder">Make Your Plan</h1>
                 <p class="lead fw-normal text-white-50 mb-0">완벽한 계획은 기업을 불러모읍니다.</p>
                 <br /><br /><br /><br /><br /><br /><br />
-                <!-- search-->
                 <section class="search-sec">
                     <div class="container">
-                        <form action="#" method="post" novalidate="novalidate">
+                        <form method="get" action="{% url 'search:searchResult'%}">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                            <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                                <option>카테고리 선택</option>
-                                                <option>결혼</option>
-                                                <option>여행</option>
-                                                <option>인테리어</option>
-                                                <option>취미</option>
-                                                <option>Example one</option>
-                                                <option>Example one</option>
-                                            </select>
+                                        <div class="col-lg-9 col-sm-12">
+                                            <input class="form-control search-slt form-control1" id="exampleFormControlSelect1" type="search" placeholder="검색 내용을 입력하세요." name="word" >
                                         </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                            <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                                <option>날짜 선택</option>
-                                                <option>1월</option>
-                                                <option>2월</option>
-                                                <option>3월</option>
-                                                <option>Example one</option>
-                                                <option>Example one</option>
-                                                <option>Example one</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                            <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                                <option>지역 선택</option>
-                                                <option>서울</option>
-                                                <option>경기도</option>
-                                                <option>강원도</option>
-                                                <option>충청도</option>
-                                                <option>경상도</option>
-                                                <option>전라도</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                            <button type="button" class="btn btn-dark wrn-btn">Search</button>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <button type="submit" class="btn btn-dark wrn-btn">Search</button>
                                         </div>
                                     </div>
                                 </div>

@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'project_app',
     'bootstrap4',
+    'search',
 ]
 
 MIDDLEWARE = [
