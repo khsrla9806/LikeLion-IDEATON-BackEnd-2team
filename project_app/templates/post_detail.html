@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-dark site-cover site-cover-sm same-height overlay single-page">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-6" style="width:936px;">
+                <div class="post-entry text-center">
+                    <h1 class="mb-4">{{ post_detail_object.title }}</h1>
+                    <div class="post-meta align-items-center text-center">
+                        <span class="d-inline-block mt-1">{{ post_detail_object.author }}</span><br/><br/>
+                        <span>&nbsp;&nbsp; {{ post_detail_object.created_at }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="row blog-entries element-animate">
+            <div class="col-md main-content">
+                <div class="post-content-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center" style="width: 10%">일정</th>
+                                <th scope="col" class="text-center" style="width: 10%">장소</th>
+                                <th scope="col" class="text-center" style="width: 80%">내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td class="text-center" >수원</td>
+                                <td>결혼식 웨딩장 구하기Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
+                                    iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
+                                    Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">2</td>
+                                <td class="text-center">제주도</td>
+                                <td>신혼 여행지 구하기Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
+                                    iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
+                                    Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">3</td>
+                                <td class="text-center">서울</td>
+                                <td>결혼식 웨딩 드레스 구하기Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
+                                    iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
+                                    Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">4</td>
+                                <td class="text-center">NONE</td>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut
+                                    iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius.
+                                    Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <br/><h5 style = "font-size:120%; font-weight: bold;">내용</h5><hr width=”길이” style="margin-top:0;" noshade />
+                    {{ post_detail_object.content }}
+                </div>
+                <div class="pt-5">
+                    <p>Categories: <a href="#">카테고리</a>
+                </div>
+                <a href="/post_edit/{{ post_detail_object.pk }}"><button type="submit" class="btn btn-outline-success" style="height:1em; line-height:50%;">게시글 수정</button></a>
+                <a href="/post_list/post_delete/{{ post_detail_object.pk }}"><button type="submit" class="btn btn-outline-danger" style="height:1em; line-height:50%;" >게시글 삭제</button></a>
+                <!-- 댓글 -->
+                <div class="pt-5 comment-wrap">
+                    <h3 class="mb-5 heading" style = "font-size:120%; font-weight: bold;">댓글</h3>
+                    <ul class="comment-list">
+                        <li class="comment">
+                            <div class="comment-body">
+                                <h3>댓글 쓴 사람 닉네임</h3>
+                                <button type="submit" class="btn btn-outline-success" style="height:1em; line-height:50%;">수정</button>
+                                <button type="submit" class="btn btn-outline-danger" style="height:1em; line-height:50%;" >삭제</button>
+                                <div class="meta">2022-07-25</div>
+                                <p>댓글 내용을 입력해주세요.</p><br /><br />
+                            </div>
+
+                            <div class="comment-body">
+                                <h3>댓글 쓴 사람 닉네임</h3>
+                                <button type="submit" class="btn btn-outline-success" style="height:1em; line-height:50%;">수정</button>
+                                <button type="submit" class="btn btn-outline-danger" style="height:1em; line-height:50%;" >삭제</button>
+                                <div class="meta">2022-07-25</div>
+                                <p>댓글 내용을 입력해주세요.</p><br /><br />
+                            </div>
+
+                            <div class="comment-body">
+                                <h3>댓글 쓴 사람 닉네임</h3>
+                                <button type="submit" class="btn btn-outline-success" style="height:1em; line-height:50%;">수정</button>
+                                <button type="submit" class="btn btn-outline-danger" style="height:1em; line-height:50%;" >삭제</button>
+                                <div class="meta">2022-07-25</div>
+                                <p>댓글 내용을 입력해주세요.</p><br /><br />
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- END comment-list -->
+
+                    <div class="comment-form-wrap pt-5">
+                        <h3 class="mb-5">댓글 남기기</h3>
+                        <form action="#" class="p-5 bg-light">
+                            <div class="form-group">
+                                <label for="name">닉네임</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">댓글 내용</label>
+                                <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="댓글 달기" class="btn btn-primary">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

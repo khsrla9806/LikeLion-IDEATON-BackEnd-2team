@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <section class="section">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <h2 class="posts-entry-title" style="font-weight:bold;">전체 게시글 목록</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{% url 'post_create' %}"><button class="btn btn-outline-dark" type="submit">게시글 작성하기</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for post_object in post_objects %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="post-entry-alt">
+                            <a href="#" class="img-link"><img src="{% static 'likelion.png' %}"
+                                    alt="Image" class="img-fluid"></a>
+                            <div class="excerpt">
+                                <h2><a href="/post_list/{{ post_object.pk }}">{{ post_object.title }}</a></h2>
+                                <div class="post-meta align-items-center text-left clearfix">
+                                    <span class="d-inline-block mt-1">By <a href="#">{{ post_object.author }}</a></span>
+                                    <span>&nbsp;-&nbsp; {{ post_object.created_at }}</span>
+                                </div>
+                                <p>{{ post_object.content }}</p>
+                                <p><a href="/post_list/{{ post_object.pk }}" class="read-more">Continue Reading</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+{% endblock %}
