@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<p style= "font-size:30px; margin-left:50px">검색하신 {{query}}입니다<br><br></p>
+    {%for Post in post %}
+        <div class="card" style="width:18rem; margin-left:50px">
+            <div class="card-body">
+                <a href="../Post/{{Post.pk}}"><img class="card-img-top" src=""></a>            
+                <h3 class="card-text">제목:{{Post.title}}</h3>
+                <p class="card-text">내용:{{Post.content}}</p>
+                <p style ="margin-bottom:10px"class="card-text">작성자:{{Post.author}}</p>                <br><br>
+            </div>
+        </div>
+        <br><br><br>
+        {%empty%}
+            <a style="font-size:25px" "color=black"> {{query}} 결과가 없습니다</a>
+    {% endfor%}
+            
+{% endblock content %}
