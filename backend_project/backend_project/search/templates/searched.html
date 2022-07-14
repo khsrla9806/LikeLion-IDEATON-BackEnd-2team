@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="bg-dark py-5 mainheader" style="height:250px;">
+    <div class="container">
+        <div class="text-center text-white">
+            <br /><br /><br /><br /><br />
+            <!-- search-->
+            <section class="search-sec">
+                <div class="container">
+                    <form method="get" action="{% url 'search:searchResult'%}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-9 col-sm-12">
+                                        <input class="form-control search-slt form-control1" id="exampleFormControlSelect1" type="search" placeholder="검색 내용을 입력하세요." name="word" >
+                                    </div>
+                                    <div class="col-lg-3 col-sm-12">
+                                        <button type="submit" class="btn btn-dark wrn-btn">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</header>
+<div class="col-sm-6">
+    <h2 class="posts-entry-title" style="font-weight:bold; font-size:30px; padding-left:220px; padding-top:100px; width: 1400px;">[ 검색하신 {{query}}에 대한 결과입니다.]</h2>
+</div>
+
+<div class="container px-4 px-lg-5 mt-5">
+    <section class="section">
+        <div class="row">
+            {% for Post in post %}
+            <div class="col-lg-4 mb-4">
+                <div class="post-entry-alt">
+                    <a href="#" class="img-link"><img src="{% static 'likelion.png' %}"
+                            alt="Image" class="img-fluid"></a>
+                    <div class="excerpt">
+                        <h2><a href="/post_list/{{ Post.pk }}">{{Post.title}}</a></h2>
+                        <div class="post-meta align-items-center text-left clearfix">
+                            <span class="d-inline-block mt-1">By <a href="#">{{Post.content}}</a></span>
+                            <span>&nbsp;-&nbsp; {{ Post.created_at }}</span>
+                        </div>
+                        <p>{{Post.author}}</p>
+                        <p><a href="/post_list/{{ Post.pk }}" class="read-more">Continue Reading</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

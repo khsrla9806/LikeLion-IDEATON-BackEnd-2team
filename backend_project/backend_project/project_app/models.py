@@ -1,4 +1,5 @@
 from django.db import models
+from django.views.generic import *
 
 class Category(models.Model):
     name = models.CharField(max_length=15, unique=True)

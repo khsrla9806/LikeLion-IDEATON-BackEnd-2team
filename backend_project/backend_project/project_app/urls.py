@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
     path('new_create/<int:pk>', views.new_comment,name='new_comment'), #댓글구현
     path('<int:detail_pk>/comment_update/<int:comment_pk>', views.comment_update, name='comment_update'),#댓글수정
     path('<int:detail_pk>/comment_delete/<int:comment_pk>', views.comment_delete, name='comment_delete'), #댓글수정
+    path('search/',include('search.urls')),
 ]

@@ -50,30 +50,27 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" style="padding-left: 40px;">
-                    <li class="nav-item" style="padding-left: 20px;"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item" style="padding-left: 20px;"><a class="nav-link active" aria-current="page" href="{% url 'team_intro' %}">팀원소개</a></li>
-                    <li class="nav-item" style="padding-left: 20px;"><a class="nav-link active" aria-current="page" href="{% url 'company_list' %}">기업목록</a></li>
-                    <li class="nav-item" style="padding-left: 20px;"><a class="nav-link active" aria-current="page" href="{% url 'post_list' %}">게시글목록</a></li>
+            <div class="col collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="col-9 navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" style="padding-left: 40px;">
+                    <li class="nav-item" style="padding-left: 10px;"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item" style="padding-left: 10px;"><a class="nav-link active" aria-current="page" href="{% url 'team_intro' %}">팀원소개</a></li>
+                    <li class="nav-item" style="padding-left: 10px;"><a class="nav-link active" aria-current="page" href="{% url 'company_list' %}">기업목록</a></li>
+                    <li class="nav-item" style="padding-left: 10px;"><a class="nav-link active" aria-current="page" href="{% url 'post_list' %}">게시글목록</a></li>
                 </ul>
-                <form class="d-flex">
-                    <!-- 로그인 완료되면 'ㅇㅇ님 안녕하세요.'가 버튼 안에 들어갈 수 있게 -->
+                <ul class="col-4 navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <button class="btn btn-outline-dark" type="submit">Sign In</button>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">My</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">마이페이지</a></li>
-                                <li>
-                                <hr class="dropdown-divider" />
-                                </li>
-                                <li><a class="dropdown-item" href="#!">로그아웃</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </form>
+                    <li class="nav-item dropdown" style="padding-left:10px;">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">My</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#!">마이페이지</a></li>
+                            <li>
+                            <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="#!">로그아웃</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
