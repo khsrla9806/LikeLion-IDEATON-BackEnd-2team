@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Schedule, Comment
+from .models import Post, Schedule, Comment, Company_Comment
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -73,4 +73,21 @@ class CommentForm(forms.ModelForm):
         labels = {
             'writer' : '닉네임',
             'comment_text' : '내용'
+        }
+
+class Company_CommentForm(forms.ModelForm):
+    class Meta:
+        model = Company_Comment
+        fields = ['writer','comment_text','image','grade']
+        widgets = {
+            'writer' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'comment_text' : forms.Textarea(attrs={'class' : 'form-control'}),
+            'image' :  forms.FileInput(attrs={'class':'form-control p-3'}), 
+            'grade': forms.Select(attrs={'class' : 'form-select '}) 
+        }     
+        labels = {
+            'writer' : '닉네임',
+            'comment_text' : '내용',
+            'image' : '사진업로드',
+            'grade' : '평점',
         }
