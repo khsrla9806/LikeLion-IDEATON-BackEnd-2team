@@ -26,14 +26,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'project_app',
-    'bootstrap4',
+    'bootstrap4', # pip install django-bootstrap4
     'search',
     'accounts',
     'django.contrib.sites',
-    'allauth',
+    'allauth', # pip install django-allauth
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django_cleanup.apps.CleanupConfig', # pip install django-clenaup
 ]
 
 SITE_ID = 1
@@ -140,3 +141,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') # 배포 시 어디로 static 파
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# 미디어 파일을 관리할 Root mediat DIR
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+# 각 media file에 대한 URL prefix
+MEDIA_URL='/media/'
+

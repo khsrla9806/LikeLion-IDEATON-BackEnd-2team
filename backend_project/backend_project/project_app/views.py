@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import CreateView, UpdateView, TemplateView
-from .forms import PostForm, ScheduleForm
+from .forms import PostForm, ScheduleForm, Company_CommentForm
 from .models import Post, Schedule, Category
 from django.shortcuts import render,redirect, get_object_or_404
 from django.views.generic import CreateView
 from .forms import PostForm, CommentForm
-from .models import Post, Comment
+from .models import Post, Comment, Company_Comment
 from django.urls import reverse
 import ast
 
@@ -93,7 +93,9 @@ def company_list(request):
     return render(request, 'company_list.html')
 
 def company_detail(request):
-    return render(request, 'company_detail.html')
+    company_comment_object = Company_Comment.objects.all()
+    CC_form=Company_CommentForm()
+    return render(request, 'company_detail.html',{'CC_form':CC_form,'company_comment_object':company_comment_object})
 
 # <댓글구현>
 # 댓글 생성
@@ -106,7 +108,7 @@ def new_comment(request,pk):
 
     return redirect('post_detail',pk) 
 
-# # 댓글 수정
+# 댓글 수정
 def comment_update(request, detail_pk, comment_pk):
     comment = get_object_or_404(Comment, pk=comment_pk)
     pk=detail_pk
@@ -114,7 +116,6 @@ def comment_update(request, detail_pk, comment_pk):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             comment.save()
-            # return redirect('post_detail/',detail_pk) #손보기
             return redirect ('post_detail', pk)
     else:
         form = CommentForm(instance=comment)
@@ -126,3 +127,39 @@ def comment_delete(request, detail_pk, comment_pk):
     comment.delete()
     pk=detail_pk
     return redirect ('post_detail', pk)
+
+
+# 기업 댓글 생성
+def new_Company_Comment(request):
+    if request.method=='POST' or request.method=='FILES':
+        CC_form=Company_CommentForm(request.POST,request.FILES)
+        if CC_form.is_valid():
+            finish_form=CC_form.save(commit=False)
+            # finish_form.post=get_object_or_404(Company_Comment,pk=pk)
+            finish_form.save()
+            return redirect('company_detail') 
+    else:
+        CC_form=Company_CommentForm
+    return render(request,'company_detail.html',{'CC_form':CC_form})
+
+
+# 기업 댓글 수정
+def companycomment_update(request, comment_pk): #detail_pk
+    comment = get_object_or_404(Company_Comment, pk=comment_pk)
+    # pk=detail_pk
+    pk=comment_pk
+    if request.method == "POST" or request.method=='FILES':
+        CCU_form = Company_CommentForm(request.POST, request.FILES, instance=comment)
+        if CCU_form.is_valid():
+            comment.save()
+            # return redirect('company_detail/',detail_pk) #company_detail 연결
+            return redirect ('company_detail') #pk
+    else:
+        CCU_form = Company_CommentForm(instance=comment)
+    return render(request, 'edit_companycomment.html', {'CCU_form': CCU_form})
+
+# 기업 댓글 삭제
+def companycomment_delete(request, comment_pk):
+    comment = get_object_or_404(Company_Comment, pk = comment_pk)
+    comment.delete()
+    return redirect ('company_detail') 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.views.generic import *
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Category(models.Model):
     name = models.CharField(max_length=15, unique=True)
@@ -38,6 +39,25 @@ class Comment(models.Model):
     created_time=models.DateTimeField(auto_now_add=True)
     modified_time=models.DateTimeField(auto_now_add=True)
     post=models.ForeignKey(Post, null=True, blank=True,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.writer
+    
+class Company_Comment(models.Model):
+    writer=models.CharField(max_length=20)
+    comment_text=models.TextField()
+    created_at=models.DateTimeField(auto_now_add=True)
+    image=models.ImageField(upload_to='images/',blank=True,null=True) #사진
+    Point=(
+    (1,'1'),
+    (2,'2'),
+    (3,'3'),
+    (4,'4'),
+    (5,'5'),
+    #평점구현 
+    )
+    grade=models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)],choices=Point) #평점
+    # post=models.ForeignKey(Company, null=True, blank=True,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.writer
