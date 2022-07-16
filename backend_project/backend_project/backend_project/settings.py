@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 SITE_ID = 1
@@ -140,3 +141,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') # 배포 시 어디로 static 파
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# 미디어 파일을 관리할 Root mediat DIR
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+# 각 media file에 대한 URL prefix
+MEDIA_URL='/media/'
+

@@ -1,5 +1,7 @@
 from django.urls import path, include
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name = 'home'),
@@ -11,8 +13,11 @@ urlpatterns = [
     path('post_list/post_delete/<int:pk>/', views.post_delete, name = 'post_delete'), #게시글삭제
     path('company_list/', views.company_list, name = 'company_list'), #기업목록
     path('company_detail/', views.company_detail, name = 'company_detail'), #기업상세
-    path('new_create/<int:pk>', views.new_comment,name='new_comment'), #댓글구현
+    path('new_create/<int:pk>', views.new_comment,name='new_comment'), #댓글생성
     path('<int:detail_pk>/comment_update/<int:comment_pk>', views.comment_update, name='comment_update'),#댓글수정
     path('<int:detail_pk>/comment_delete/<int:comment_pk>', views.comment_delete, name='comment_delete'), #댓글수정
     path('search/',include('search.urls')),
-]
+        path('new_Company_Comment/', views.new_Company_Comment,name='new_Company_Comment'), #기업댓글생성
+    path('companycomment_update/<int:comment_pk>', views.companycomment_update, name='companycomment_update'),#기업댓글수정
+    path('companycomment_delete/<int:comment_pk>', views.companycomment_delete, name='companycomment_delete'), #기업댓글삭제
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="comment-form-wrap pt-5">
+  <h3 class="mb-5">&nbsp;&nbsp;&nbsp;&nbsp;기업 후기 수정</h3>
+  <form method="POST" class="p-5 bg-light" enctype="multipart/form-data">
+    <div class="form-group">
+      {%csrf_token%} {{CCU_form.as_p}}
+      <input type="submit" value="댓글 달기" class="btn btn-primary" />
+    </div>
+  </form>
+</div>
+{% endblock %}
