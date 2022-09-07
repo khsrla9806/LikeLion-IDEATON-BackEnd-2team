@@ -10,7 +10,7 @@
 | 김기찬        | https://github.com/kichan12   |
 | 심용훈        | https://github.com/yonghoon98 |\
 
-### 사용한 기술
+### 💻사용한 기술
 **언어**<br>
 <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white"/><br>
 **프레임워크**<br>
