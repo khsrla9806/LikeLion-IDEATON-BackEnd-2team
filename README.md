@@ -1,5 +1,15 @@
 # 멋쟁이 사자처럼 아이디어톤
 
+### Backend 2Team
+
+|               | github                        |
+| ------------- | ----------------------------- |
+| **김훈섭(팀장)**| https://github.com/khsrla9806 |
+| 김지원        | https://github.com/kjw4420    |
+| 김경준        | https://github.com/kkzoone    |
+| 김기찬        | https://github.com/kichan12   |
+| 심용훈        | https://github.com/yonghoon98 |
+
 ### 💡하려는 프로젝트
 
 ![Untitled 1](https://user-images.githubusercontent.com/70641477/188789857-e43d5312-73eb-490f-b6ae-d442d7bb29d1.png)
